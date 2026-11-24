@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AI for Manufacturing: From Pilot to Production Floor — Live Webinar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#e9ecee; --surface:#f6f7f8; --ink:#14222e; --muted:#4b5b68; --line:#b8c2ca;
+  --blue:#1f4e79; --blue-ink:#ffffff; --orange:#e85a0c; --orange-ink:#ffffff; --band:#14222e; --band-ink:#eef2f5;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){--bg:#10181f;--surface:#18232c;--ink:#e8edf1;--muted:#9fb0bd;--line:#2e3d49;--blue:#6fa8d8;--blue-ink:#10181f;--orange:#ff7a2e;--orange-ink:#10181f;--band:#0a1015;--band-ink:#e8edf1}
+}
+:root[data-theme="dark"]{--bg:#10181f;--surface:#18232c;--ink:#e8edf1;--muted:#9fb0bd;--line:#2e3d49;--blue:#6fa8d8;--blue-ink:#10181f;--orange:#ff7a2e;--orange-ink:#10181f;--band:#0a1015;--band-ink:#e8edf1}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 "IBM Plex Sans",system-ui,sans-serif}
+h1,h2,h3{font-family:"Barlow Condensed","Arial Narrow",sans-serif;line-height:1.02;margin:0;letter-spacing:.005em}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+section{padding:72px 0}
+h2{font-size:clamp(34px,5vw,52px);font-weight:700;margin-bottom:12px}
+.lede{color:var(--muted);max-width:60ch;margin:0 0 36px}
+.btn{display:inline-block;background:var(--orange);color:var(--orange-ink);font:600 17px "IBM Plex Sans",sans-serif;padding:15px 26px;border:0;border-radius:4px;cursor:pointer;text-decoration:none}
+.btn:hover{filter:brightness(1.08)}
+nav{border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;padding-top:14px;padding-bottom:14px}
+.brand{font:700 22px "Barlow Condensed",sans-serif}
+.brand b{color:var(--orange)}
+nav a.small{font-weight:600;font-size:15px;text-decoration:none;border-bottom:2px solid var(--orange)}
+
+/* hero */
+.hero{padding:64px 0 0}
+.hero-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:48px;align-items:start}
+.hero h1{font-size:clamp(46px,8vw,92px);font-weight:700;margin-bottom:20px}
+.hero p{font-size:19px;color:var(--muted);max-width:52ch;margin:0 0 26px}
+.facts{display:flex;flex-wrap:wrap;gap:10px 28px;margin:0 0 30px;padding:0;list-style:none;font-weight:500}
+.facts li{border-left:3px solid var(--blue);padding-left:10px}
+.facts span{display:block;color:var(--muted);font-size:14px;font-weight:400}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:26px}
+.count{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;text-align:center;margin:6px 0 18px}
+.count div{background:var(--bg);border:1px solid var(--line);border-radius:4px;padding:10px 0}
+.count strong{display:block;font:700 38px/1 "Barlow Condensed",sans-serif}
+.count span{font-size:13px;color:var(--muted)}
+form label{display:block;font-weight:500;font-size:15px;margin:12px 0 4px}
+form input,form select{width:100%;padding:12px;font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:4px}
+form .btn{width:100%;margin-top:18px}
+.price{display:flex;align-items:baseline;gap:10px;margin-bottom:4px}
+.price strong{font:700 44px "Barlow Condensed",sans-serif}
+.price s{color:var(--muted)}
+.fine{font-size:14px;color:var(--muted);margin:10px 0 0}
+.ok{display:none;text-align:center;padding:12px 0}
+.ok h3{font-size:34px;margin-bottom:8px}
+
+/* conveyor: the one animated moment */
+.belt{margin-top:64px;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);background:var(--surface);overflow:hidden;height:74px;position:relative}
+.belt::after{content:"";position:absolute;left:0;right:0;bottom:0;height:10px;background:repeating-linear-gradient(90deg,var(--ink) 0 14px,transparent 14px 28px);opacity:.25}
+.track{display:flex;gap:56px;position:absolute;top:14px;white-space:nowrap;animation:run 28s linear infinite}
+.track span{font:600 20px "Barlow Condensed",sans-serif;border:2px solid var(--blue);color:var(--blue);padding:4px 14px;border-radius:3px;height:38px}
+.track span:nth-child(3n){border-color:var(--orange);color:var(--orange)}
+@keyframes run{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.track{animation:none}}
+
+/* learn */
+.grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
+.grid4 .card h3{font-size:27px;margin-bottom:8px}
+.grid4 .card p{margin:0;color:var(--muted);font-size:16px}
+.grid4 .card{border-top:4px solid var(--blue)}
+.grid4 .card:nth-child(even){border-top-color:var(--orange)}
+
+/* agenda */
+.band{background:var(--band);color:var(--band-ink)}
+.band .lede{color:var(--band-ink);opacity:.75}
+.agenda{list-style:none;margin:0;padding:0;border-left:3px solid var(--orange)}
+.agenda li{display:grid;grid-template-columns:110px 1fr;gap:20px;padding:16px 0 16px 24px;border-bottom:1px solid rgba(255,255,255,.14)}
+.agenda time{font:700 26px "Barlow Condensed",sans-serif;color:var(--orange)}
+.agenda h3{font:600 18px "IBM Plex Sans",sans-serif;margin-bottom:2px}
+.agenda p{margin:0;opacity:.75;font-size:15.5px}
+
+/* speakers */
+.people{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.person{display:flex;gap:18px}
+.avatar{flex:none;width:76px;height:76px;border-radius:50%;background:var(--blue);color:var(--blue-ink);display:grid;place-items:center;font:700 30px "Barlow Condensed",sans-serif}
+.person h3{font-size:28px}
+.person .role{color:var(--blue);font-weight:600;font-size:15px;margin:2px 0 8px}
+.person p{margin:0;font-size:15.5px;color:var(--muted)}
+
+/* audience + faq */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.ticks{list-style:none;padding:0;margin:0}
+.ticks li{padding:10px 0 10px 30px;border-bottom:1px solid var(--line);position:relative}
+.ticks li::before{content:"";position:absolute;left:4px;top:19px;width:12px;height:7px;border-left:3px solid var(--orange);border-bottom:3px solid var(--orange);transform:rotate(-45deg)}
+details{border-bottom:1px solid var(--line);padding:14px 0}
+summary{cursor:pointer;font-weight:600}
+details p{margin:8px 0 0;color:var(--muted)}
+.final{text-align:center}
+.final h2{font-size:clamp(38px,6vw,64px)}
+.final p{margin:0 auto 26px;color:var(--muted);max-width:50ch}
+footer{border-top:1px solid var(--line);padding:26px 0;font-size:14px;color:var(--muted);text-align:center}
+
+@media (max-width:820px){
+  .hero-grid,.two{grid-template-columns:1fr;gap:32px}
+  section{padding:56px 0}
+  .agenda li{grid-template-columns:1fr;gap:2px}
+}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap"><span class="brand">Forge<b>AI</b> Academy</span><a class="small" href="#register">Reserve a seat</a></div></nav>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <h1>Put AI to work on your factory floor.</h1>
+      <p>A 90-minute live session on how manufacturers are cutting downtime, scrap and inspection time with AI, with real plant examples and a 30-day plan you can start on Monday.</p>
+      <ul class="facts">
+        <li><span>Date</span>Sat, 12 Dec 2026</li>
+        <li><span>Time</span>11:00 AM IST</li>
+        <li><span>Format</span>Live on Zoom, 90 min</li>
+      </ul>
+      <a class="btn" href="#register">Reserve my seat</a>
+    </div>
+
+    <div class="card" id="register">
+      <div id="formView">
+        <div class="count" aria-label="Time until the webinar starts">
+          <div><strong id="d">--</strong><span>days</span></div>
+          <div><strong id="h">--</strong><span>hours</span></div>
+          <div><strong id="m">--</strong><span>min</span></div>
+          <div><strong id="s">--</strong><span>sec</span></div>
+        </div>
+        <div class="price"><strong>₹499</strong><s>₹1,499</s><span>until 5 Dec</span></div>
+        <form id="reg">
+          <label for="name">Full name</label>
+          <input id="name" name="name" required autocomplete="name">
+          <label for="email">Work email</label>
+          <input id="email" name="email" type="email" required autocomplete="email">
+          <label for="role">Your role</label>
+          <select id="role" name="role" required>
+            <option value="">Select one</option>
+            <option>Plant or operations head</option>
+            <option>Production or maintenance engineer</option>
+            <option>Quality manager</option>
+            <option>IT or data lead</option>
+            <option>Founder or owner</option>
+            <option>Other</option>
+          </select>
+          <button class="btn" type="submit">Reserve my seat</button>
+        </form>
+        <p class="fine">Limited to 300 live seats. Full recording and slides sent to every registrant.</p>
+      </div>
+      <div class="ok" id="okView" role="status">
+        <h3>You’re in.</h3>
+        <p>We’ve saved a seat for <strong id="who"></strong>. The Zoom link and a calendar invite will arrive by email 24 hours before the session.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="belt" aria-hidden="true">
+    <div class="track">
+      <span>Predictive maintenance</span><span>Visual defect inspection</span><span>Demand forecasting</span><span>Energy optimisation</span><span>Line scheduling</span><span>Quality analytics</span><span>Spare parts planning</span><span>Safety monitoring</span>
+      <span>Predictive maintenance</span><span>Visual defect inspection</span><span>Demand forecasting</span><span>Energy optimisation</span><span>Line scheduling</span><span>Quality analytics</span><span>Spare parts planning</span><span>Safety monitoring</span>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <h2>What you’ll walk away with</h2>
+    <p class="lede">No theory dumps. Every segment ends with something you can use in your own plant.</p>
+    <div class="grid4">
+      <div class="card"><h3>Find the right first use case</h3><p>A simple scoring sheet to rank ideas by payback, data readiness and risk, so your first pilot actually ships.</p></div>
+      <div class="card"><h3>Cut unplanned downtime</h3><p>How plants use sensor and maintenance-log data to predict failures days ahead, with typical savings ranges.</p></div>
+      <div class="card"><h3>Catch defects earlier</h3><p>Camera-based inspection on existing lines: what hardware you need, how many images, and where it fails.</p></div>
+      <div class="card"><h3>Win over the shop floor</h3><p>How to roll out AI tools that supervisors and operators trust, and the mistakes that stall most pilots.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <h2>Agenda</h2>
+    <p class="lede">90 minutes, all times in IST.</p>
+    <ol class="agenda">
+      <li><time>11:00</time><div><h3>Where AI pays off in manufacturing today</h3><p>What is working in 2026, what is still hype, and how to tell the difference.</p></div></li>
+      <li><time>11:15</time><div><h3>Case study: predictive maintenance in a 3-shift plant</h3><p>Data used, model built, and the 31% drop in unplanned stoppages.</p></div></li>
+      <li><time>11:35</time><div><h3>Live demo: AI visual inspection on a packing line</h3><p>From camera setup to alerts, built with off-the-shelf tools.</p></div></li>
+      <li><time>11:55</time><div><h3>Your 30-day pilot plan</h3><p>Team, data, budget, success metrics, and a checklist to fill in as we go.</p></div></li>
+      <li><time>12:15</time><div><h3>Live Q&amp;A</h3><p>Bring your plant’s problem. We will work through as many as we can.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Your speakers</h2>
+    <p class="lede">Practitioners who have shipped AI on real production lines.</p>
+    <div class="people">
+      <div class="card person">
+        <div class="avatar">MI</div>
+        <div><h3>Dr. Meera Iyer</h3><div class="role">Head of Industrial AI, Tarang Auto Components</div><p>Led AI rollouts across 9 plants. Previously a reliability engineer for 12 years. Has seen both the wins and the failed pilots.</p></div>
+      </div>
+      <div class="card person">
+        <div class="avatar">RK</div>
+        <div><h3>Rohan Kulkarni</h3><div class="role">Founder, VisionLine Systems</div><p>Builds machine-vision inspection for electronics and packaging lines. Has deployed on more than 40 production lines across India.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap two">
+    <div>
+      <h2>Who this is for</h2>
+      <ul class="ticks">
+        <li>Plant, operations and maintenance leaders</li>
+        <li>Quality and production engineers</li>
+        <li>IT and data teams supporting a factory</li>
+        <li>Owners of small and mid-size manufacturers</li>
+        <li>No coding or data science background needed</li>
+      </ul>
+    </div>
+    <div>
+      <h2>Questions</h2>
+      <details><summary>Will there be a recording?</summary><p>Yes. Every registrant gets the recording and slides within 48 hours, even if you can’t attend live.</p></details>
+      <details><summary>Do I need existing data or sensors?</summary><p>No. We cover how to start with the data you already have, such as maintenance logs and quality records.</p></details>
+      <details><summary>Is there a refund?</summary><p>If the session isn’t useful, email us within 7 days of the webinar for a full refund.</p></details>
+      <details><summary>Can my team attend together?</summary><p>Yes. Teams of 5 or more get 20% off. Write to teams@forgeai.example.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="final" style="padding-top:0">
+  <div class="wrap">
+    <h2>Start your first AI pilot with a plan.</h2>
+    <p>Early-bird price of ₹499 ends 5 December. Seats are limited to 300.</p>
+    <a class="btn" href="#register">Reserve my seat</a>
+  </div>
+</section>
+
+<footer><div class="wrap">© 2026 ForgeAI Academy. Sample page with fictional speakers and details.</div></footer>
+
+<script>
+(function(){
+  var target=Date.UTC(2026,11,12,5,30,0); // 11:00 IST
+  function pad(n){return String(n).padStart(2,"0")}
+  function tick(){
+    var t=Math.max(0,target-Date.now()),s=Math.floor(t/1000);
+    document.getElementById("d").textContent=Math.floor(s/86400);
+    document.getElementById("h").textContent=pad(Math.floor(s%86400/3600));
+    document.getElementById("m").textContent=pad(Math.floor(s%3600/60));
+    document.getElementById("s").textContent=pad(s%60);
+  }
+  tick();setInterval(tick,1000);
+  document.getElementById("reg").addEventListener("submit",function(e){
+    e.preventDefault();
+    document.getElementById("who").textContent=document.getElementById("name").value;
+    document.getElementById("formView").style.display="none";
+    document.getElementById("okView").style.display="block";
+  });
+})();
+</script>
+</body>
+</html>
